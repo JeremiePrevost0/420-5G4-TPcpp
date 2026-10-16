@@ -63,12 +63,12 @@ void Book::returnBook() {
 }
 
 string Book::toString() const {
-    return this->title + " par " + this->author + " (ISBN: " + this->isbn + ") - " + (this->isAvailable ? "Disponible" : "Emprunté par " + this->borrowerId);
+    return this->title + " par " + this->author + " (ISBN: " + this->isbn + ") - " + (this->isAvailable ? "Disponible" : "Emprunté");
 }
 
 // mettre sous format de fichier
 string Book::toFileFormat() const {
-    return this->title + "|" + this->author + "|" + this->isbn + "|" + (this->isAvailable ? "1" : "0") + "|" + (this->isAvailable ? this->borrowerId : "");
+    return this->title + "|" + this->author + "|" + this->isbn + "|" + (this->isAvailable ? "1" : "0") + "|";
 }
 
 void Book::fromFileFormat(const string& line) {
@@ -83,7 +83,7 @@ void Book::fromFileFormat(const string& line) {
     // convertir le isAvailable de binaire a true/false dans le code
     if (availabilityString == "0") {
         // obtenir le borrowerId si il est emprunter
-        getline(ss, borrowerId);
+        getline(ss, borrowerId, '|');
         isAvailable = false;
     } else {
         isAvailable = true;
