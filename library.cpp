@@ -27,6 +27,7 @@ bool Library::removeBook(const string& isbn) {
     return false;
 }
 
+// Tri les livres par titre, puis par auteur si les titres sont identiques
 vector<Book*> Library::sortBooksByTitleThenAuthor(vector<Book*> booksToSort) {
     // regarde si le titre est le meme, si oui, compare les auteurs
     sort(booksToSort.begin(), booksToSort.end(), [](Book* a, Book* b) {
@@ -163,11 +164,13 @@ void Library::displayAllBooks() {
         cout << "Aucun livre dans la bibliothèque.\n";
         return;
     }
+
+    auto sortedBooks = sortBooksByTitleThenAuthor(getAllBooks());
     
     cout << "\n=== TOUS LES LIVRES ===\n";
-    for (size_t i = 0; i < books.size(); ++i) {
+    for (size_t i = 0; i < sortedBooks.size(); ++i) {
         cout << "\nLivre " << (i + 1) << " :\n";
-        cout << books[i]->toString() << "\n";
+        cout << sortedBooks[i]->toString() << "\n";
         cout << "-------------------------\n";
     }
 }
@@ -180,11 +183,13 @@ void Library::displayAvailableBooks() {
         cout << "Aucun livre disponible pour emprunt.\n";
         return;
     }
+
+    auto sortedAvailable = sortBooksByTitleThenAuthor(available);
     
     cout << "\n=== LIVRES DISPONIBLES ===\n";
-    for (size_t i = 0; i < available.size(); ++i) {
+    for (size_t i = 0; i < sortedAvailable.size(); ++i) {
         cout << "\nLivre " << (i + 1) << " :\n";
-        cout << available[i]->toString() << "\n";
+        cout << sortedAvailable[i]->toString() << "\n";
         cout << "---------------------------\n";
     }
 }
