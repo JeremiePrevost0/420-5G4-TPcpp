@@ -46,3 +46,21 @@ void Book::setAvailability(bool available) {
 void Book::setBorrowerId(const string& id) {
     this->borrowerId = id;
 }
+
+// méthodes
+
+// associe le userId de la personne qui emprunte au borrowerId de Book. Change isAvailable to false
+void Book::checkOut(const string& borrowerId) {
+    this->isAvailable = false;
+    this->borrowerId = borrowerId;
+}
+
+// remet a zero le borrowerId et isAvailable to true
+void Book::returnBook() {
+    this->borrowerId = "";
+    this->isAvailable = true;
+}
+
+string Book::toString() const {
+    return this->title;
+}
