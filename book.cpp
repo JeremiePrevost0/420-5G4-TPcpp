@@ -1,5 +1,6 @@
 #include "book.h"
 #include <string>
+#include <sstream>
 
 using namespace std;
 
@@ -63,4 +64,28 @@ void Book::returnBook() {
 
 string Book::toString() const {
     return this->title;
+}
+
+// mettre sous format de fichier
+string Book::toFileFormat() const {
+    return this->title + "|" + this->author + "|" + this->isbn + "|" + (this->isAvailable ? "1" : "0") + "|" + (this->isAvailable ? this->borrowerId : "");
+}
+
+void Book::fromFileFormat(const string& line) {
+    stringstream ss(line);
+    string availabilityString;
+
+    getline(ss, title, '|');
+    getline(ss, author, '|');
+    getline(ss, isbn, '|');
+    getline(ss, availabilityString, '|');
+
+    // convertir le isAvailable de binaire a true/false dans le code
+    if (availabilityString == "0") {
+        // obtenir le borrowerId si il est emprunter
+        getline(ss, borrowerId);
+        isAvailable = false;
+    } else {
+        isAvailable = true;
+    }
 }
