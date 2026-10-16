@@ -63,7 +63,7 @@ void Book::returnBook() {
 }
 
 string Book::toString() const {
-    return this->title;
+    return this->title + " par " + this->author + " (ISBN: " + this->isbn + ") - " + (this->isAvailable ? "Disponible" : "Emprunté par " + this->borrowerId);
 }
 
 // mettre sous format de fichier
