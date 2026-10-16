@@ -27,6 +27,17 @@ bool Library::removeBook(const string& isbn) {
     return false;
 }
 
+vector<Book*> Library::sortBooksByTitleThenAuthor(vector<Book*> booksToSort) {
+    // regarde si le titre est le meme, si oui, compare les auteurs
+    sort(booksToSort.begin(), booksToSort.end(), [](Book* a, Book* b) {
+            if (a->getTitle() == b->getTitle()) {
+                return a->getAuthor() < b->getAuthor();
+            }
+            return a->getTitle() < b->getTitle();
+        });
+    return booksToSort;
+}
+
 // Find book by ISBN
 Book* Library::findBookByISBN(const string& isbn) {
     auto it = find_if(books.begin(), books.end(),
