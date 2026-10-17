@@ -442,6 +442,7 @@ CMakeFiles/bibliotheque.dir/filemanager.cpp.o: ../filemanager.cpp \
   /usr/include/c++/14/ext/aligned_buffer.h \
   /usr/include/c++/14/bits/fs_dir.h \
   /usr/include/c++/14/bits/fs_ops.h \
+  /usr/include/c++/14/chrono \
   ../filemanager.h \
   ../library.h \
   /usr/include/c++/14/vector \
@@ -1212,6 +1213,8 @@ CMakeFiles/bibliotheque.dir/user.cpp.o: ../user.cpp \
 ../library.h:
 
 ../filemanager.h:
+
+/usr/include/c++/14/chrono:
 
 /usr/include/c++/14/bits/fs_ops.h:
 
