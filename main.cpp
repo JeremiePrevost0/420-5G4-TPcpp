@@ -272,8 +272,17 @@ int main(int argc, char* argv[]) {
             }
             
             case 0: // Exit
-                cout << "Sauvegarde des données avant la fermeture...\n";
-                fileManager.saveLibraryData(library);
+            
+                if (fileManager.fileExists(booksFile) || fileManager.fileExists(usersFile)) {
+                    cout << "Sauvegarde des données avant la fermeture...\n";
+                    if (fileManager.saveLibraryData(library)) {
+                        cout << "Données sauvegardées avec succès !\n";
+                    } else {
+                        cout << "Erreur lors de la sauvegarde des données.\n";
+                    }
+                } else {
+                    cout << "Aucun répertoire de sauvegarde trouvé. Données non sauvegardées.\n";
+                }
                 cout << "Merci d'avoir utilisé le Système de Gestion de Bibliothèque Personnelle !\n";
                 running = false;
                 break;
