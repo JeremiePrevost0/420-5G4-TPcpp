@@ -10,9 +10,9 @@ stringstream ss(ligne);
 
 string ddn, nom, age;
 
-getline(ss, ddn, ","); --- Lit le texte jusqu'a la virgule et met le resultat dans ddn
-getline(ss, nom, ","); // la lecture continue
-getline(ss, age, ",");
+getline(ss, ddn, ","); --- Lit le texte jusqu'a la virgule et met le resultat dans ddn  
+getline(ss, nom, ","); // la lecture continue  
+getline(ss, age, ",");  
 
 
 Question 2: Options de développement possible
