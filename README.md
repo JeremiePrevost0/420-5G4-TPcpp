@@ -1,11 +1,11 @@
-1. Jérémie Prévost
+1. Jérémie Prévost 2396827  
 2. fonctionnalités: Numerotation automatique des ID utilisateurs et tri des résultats par titre, auteur pour l’affichage
 
 Question 1: C++
 
 Le stringstream est une classe en C++ qui permet de lire un string comme si c'était un ficher ouvert. Il faut inclure #include <sstream> pour l'utiliser. Par exemple si j'ai une ligne avec plusieurs éléments à lire, je peux lire ces éléments en les découpants avec getline(). Stringstream sert aussi à assembler plusieurs variables de types différents en une seule string (comme stringBuilder en java). Exemple: 
 
-string ligne = "2005,Jeremie,21";
+string ligne = "2005,Jeremie,21";  
 stringstream ss(ligne);
 
 string ddn, nom, age;
